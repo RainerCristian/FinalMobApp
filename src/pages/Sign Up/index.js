@@ -1,17 +1,29 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Button, Gap, Header, TextInput} from '../../components';
+import {launchImageLibrary} from 'react-native-image-picker';
 
 const SignUp = () => {
+  const getPhoto = async () => {
+    const result = await launchImageLibrary({
+      maxHeight: 200,
+      maxWidth: 200,
+      includeBase64: true,
+    });
+    console.log('result,', result);
+  };
+
   return (
     <View style={styles.page}>
       <Header title="Sign Up" />
       <View style={styles.contentWrapper}>
         <View style={styles.avatarWrapper}>
           <View style={styles.border}>
-            <View style={styles.addPhoto}>
-              <Text style={styles.addPhotoText}>Add Photo</Text>
-            </View>
+            <TouchableOpacity onPress={getPhoto} activeOpacity={0.5}>
+              <View style={styles.addPhoto}>
+                <Text style={styles.addPhotoText}>Add Photo</Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -62,7 +74,7 @@ const styles = StyleSheet.create({
   addPhotoText: {
     fontSize: 12,
     fontFamily: 'Inter',
-    maxWidht: 40,
+    maxWidth: 40,
     textAlign: 'center',
   },
 
