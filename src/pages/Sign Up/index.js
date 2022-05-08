@@ -1,23 +1,31 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {Button, Header, TextInput} from '../../components';
+import {Button, Gap, Header, TextInput} from '../../components';
 
 const SignUp = () => {
   return (
     <View style={styles.page}>
       <Header title="Sign Up" />
       <View style={styles.contentWrapper}>
-        <View style={styles.addPhoto}>
-          <Text>Add Photo</Text>
+        <View style={styles.avatarWrapper}>
+          <View style={styles.border}>
+            <View style={styles.addPhoto}>
+              <Text style={styles.addPhotoText}>Add Photo</Text>
+            </View>
+          </View>
         </View>
 
         <TextInput title="Full Name" placeholder="Type your full name" />
+        <Gap height={26} />
         <TextInput
           title="Email Address"
           placeholder="Type your email address"
         />
+        <Gap height={26} />
         <TextInput title="Password" placeholder="Type your password" />
+        <Gap height={40} />
         <Button title="Continue" />
+        <Gap height={26} />
         <Text style={styles.Text}>Already have account?</Text>
         <Button title="Sign In" />
       </View>
@@ -35,7 +43,7 @@ const styles = StyleSheet.create({
   contentWrapper: {
     flex: 1,
     backgroundColor: '#FEC58C',
-    peddingHorizontal: 24,
+    paddingHorizontal: 24,
   },
 
   Text: {
@@ -49,5 +57,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 90,
+  },
+
+  addPhotoText: {
+    fontSize: 12,
+    fontFamily: 'Inter',
+    maxWidht: 40,
+    textAlign: 'center',
+  },
+
+  border: {
+    borderWidth: 1,
+    borderColor: '8D92A3',
+    width: 110,
+    height: 110,
+    borderRadius: 110,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderStyle: 'dashed',
+  },
+
+  avatarWrapper: {
+    alignItems: 'center',
+    marginTop: 20,
+    marginBottom: 1,
   },
 });
